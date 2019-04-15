@@ -40,7 +40,7 @@
     "test:detect": "yarn test --detectOpenHandles",
     "codegen": "gql-gen --config codegen.yml",
     "codegen:watch": "yarn codegen -w",
-    "generate:userTypes": "node ./dist/scripts/generateTypes.js -t src/users/__generated_types/types.ts -p src/users/typeDefs -n userTypeDefs"
+    "generate:userTypes": "yarn build && node ./dist/scripts/generateTypes.js -t src/users/__generated_types/types.ts -p src/users/typeDefs -n userTypeDefs"
   },
   "dependencies": {
     "apollo-link-http": "^1.5.14",

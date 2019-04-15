@@ -1,10 +1,10 @@
-import { gql } from "apollo-server-koa";
+import { gql } from 'apollo-server-koa'
 
 export const userTypeDefs = gql`
 type User {
     id: Int!
     name: String!
-    books: [String!]!
+    bookIds: [Int!]!
 }
 
 type Query {
