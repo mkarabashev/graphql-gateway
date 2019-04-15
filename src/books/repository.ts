@@ -1,4 +1,5 @@
 import { Book } from "./Book";
+import { intersectionWith } from 'lodash'
 
 const books: Book[] = [
     {
@@ -13,5 +14,5 @@ const books: Book[] = [
     }
 ]
 
-export const getBook = (id: number): Book => null
-export const findBooks = (ids: number[]): Book[] => null
+export const getBook = (id: number): Book => books.find(book => book.id === id)
+export const findBooks = (ids: number[]): Book[] => intersectionWith(books, ids, (book, id) => book.id === id)
