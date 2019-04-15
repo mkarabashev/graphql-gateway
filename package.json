@@ -35,6 +35,7 @@
     "postinstall": "yarn build",
     "prebuild": "yarn clean",
     "start": "node --harmony dist/src/index.js",
+    "start:user": "node --harmony dist/src/users/index.js",
     "test": "NODE_ENV=test && jest --color",
     "test:watch": "yarn test --watch",
     "test:detect": "yarn test --detectOpenHandles",
