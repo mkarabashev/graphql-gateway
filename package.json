@@ -39,7 +39,8 @@
     "test:watch": "yarn test --watch",
     "test:detect": "yarn test --detectOpenHandles",
     "codegen": "gql-gen --config codegen.yml",
-    "codegen:watch": "yarn codegen -w"
+    "codegen:watch": "yarn codegen -w",
+    "generate:userTypes": "node ./dist/scripts/generateTypes.js -t src/users/__generated_types/types.ts -p src/users/typeDefs -n userTypeDefs"
   },
   "dependencies": {
     "apollo-link-http": "^1.5.14",
@@ -54,6 +55,8 @@
   "devDependencies": {
     "@graphql-codegen/cli": "^1.0.7",
     "@graphql-codegen/core": "^1.0.7",
+    "@graphql-codegen/typescript": "^1.0.7",
+    "@graphql-codegen/typescript-resolvers": "^1.0.7",
     "@types/graphql": "^14.2.0",
     "@types/isomorphic-fetch": "^0.0.35",
     "@types/jest": "^24.0.11",
@@ -61,8 +64,11 @@
     "@types/koa": "^2.0.48",
     "@types/koa-router": "^7.0.40",
     "@types/node": "^11.13.4",
+    "@types/rimraf": "^2.0.2",
+    "command-line-args": "^5.1.1",
     "jest": "^24.7.1",
     "jest-junit": "^6.3.0",
+    "rimraf": "^2.6.3",
     "ts-jest": "^24.0.2",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
