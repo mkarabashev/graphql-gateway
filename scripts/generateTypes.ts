@@ -28,12 +28,11 @@ function extractArgs(): Args {
     return args
 }
 
-async function createSchema(path: string, name: string): Promise<GraphQLSchema> {
+async function getSchema(path: string, name: string): Promise<GraphQLSchema> {
     const relativePath = join('../', path)
     const fileContent = await import(relativePath)
 
-    const typeDefs: DocumentNode = fileContent[name]
-    return makeExecutableSchema({ typeDefs })
+    return fileContent[name]
 }
 
 function createConfig(schema: GraphQLSchema, outputFile: string): Parameters<typeof codegen>[0] {
@@ -61,7 +60,7 @@ async function generateSchemaTypes(): Promise<void> {
     const args = extractArgs()
     console.info('Args processed')
 
-    const schema = await createSchema(args.schemaPath, args.schemaName)
+    const schema = await getSchema(args.schemaPath, args.schemaName)
     console.info('Schema created')
 
     const config = createConfig(schema, args.typingsPath)
