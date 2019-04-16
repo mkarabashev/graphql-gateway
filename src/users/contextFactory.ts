@@ -1,8 +1,9 @@
-import { getUser } from './repository'
+import { getUser, findUsers } from './repository'
 
 export const createContext = () => ({
     users: {
-        get: getUser
+        get: getUser,
+        find: findUsers,
     }
 })
 

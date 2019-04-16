@@ -1,4 +1,3 @@
-import * as Koa from 'koa'
 import { gql, makeExecutableSchema } from 'apollo-server-koa'
 import { Resolvers } from './__generated_types/types'
 import { UserContext } from './contextFactory'
@@ -12,12 +11,14 @@ type User {
 
 type Query {
     getUser(id: Int!): User
+    getUsers(ids: [Int!]!): [User!]!
 }
 `
 
 export const userResolvers: Resolvers<UserContext> = {
     Query: {
-        getUser: (_, args, ctx) => ctx.users.get(args.id)
+        getUser: (_, args, ctx) => ctx.users.get(args.id),
+        getUsers: (_, args, ctx) => ctx.users.find(args.ids)
     }
 }
 

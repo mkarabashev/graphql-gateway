@@ -1,3 +1,4 @@
+import { intersectionWith } from 'lodash'
 import { User } from './__generated_types/types'
 
 const users: User[] = [
@@ -13,3 +14,4 @@ const users: User[] = [
 ]
 
 export const getUser = (id: number): User => users.find(user => user.id === id)
+export const findUsers = (ids: number[]): User[] => intersectionWith(users, ids, (book, id) => book.id === id)

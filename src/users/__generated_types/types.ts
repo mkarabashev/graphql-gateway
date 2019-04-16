@@ -11,11 +11,17 @@ export type Scalars = {
 
 export type Query = {
   getUser?: Maybe<User>,
+  getUsers: Array<User>,
 };
 
 
 export type QueryGetUserArgs = {
   id: Scalars['Int']
+};
+
+
+export type QueryGetUsersArgs = {
+  ids: Array<Scalars['Int']>
 };
 
 export type User = {
@@ -97,6 +103,7 @@ export type ResolversTypes = {
 
 export type QueryResolvers<Context = any, ParentType = ResolversTypes['Query']> = {
   getUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, Context, QueryGetUserArgs>,
+  getUsers?: Resolver<Array<ResolversTypes['User']>, ParentType, Context, QueryGetUsersArgs>,
 };
 
 export type UserResolvers<Context = any, ParentType = ResolversTypes['User']> = {

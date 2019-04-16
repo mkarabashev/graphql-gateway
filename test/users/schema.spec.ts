@@ -14,7 +14,7 @@ describe('schema', () => {
         it('should get users', async () => {
             expect(userResolvers.Query.getUser).toBeDefined()
             const resolver = userResolvers.Query.getUser
-            const result = isResolverFn(resolver) && await resolver({}, { id: 1 }, ctx, undefined)
+            const result = isResolverFn(resolver) && await resolver(undefined, { id: 1 }, ctx, undefined)
             expect(result.id).toBe(1)
         })
     })
