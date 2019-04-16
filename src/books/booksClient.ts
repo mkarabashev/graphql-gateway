@@ -1,5 +1,5 @@
 import * as fetch from 'isomorphic-fetch'
-import { PORT } from '.'
+import { PORT } from './bookApp'
 
 const serializeIds = (ids: number[]): string => ids.join(',')
 
