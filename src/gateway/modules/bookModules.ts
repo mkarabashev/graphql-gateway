@@ -1,4 +1,6 @@
+import { GatewayContext } from '../contextFactory'
 import { gql, makeExecutableSchema } from 'apollo-server-koa'
+import { Resolvers } from '../__generated_types/types'
 
 const bookTypeDefs = gql`
 type Book {
@@ -8,10 +10,16 @@ type Book {
 
 type Query {
     getBook(id: Int!): Book
-    findBooks(ids: [Int!]!): [Book!]!
 }
 `
 
+const bookResolvers: Resolvers<GatewayContext> = {
+    Query: {
+        getBook: (_, args, ctx) => ctx.clients.books.getBook(args.id)
+    }
+}
+
 export const bookSchema = makeExecutableSchema({
-    typeDefs: bookTypeDefs
+    typeDefs: bookTypeDefs,
+    resolvers: bookResolvers,
 })

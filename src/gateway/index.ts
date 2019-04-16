@@ -1,5 +1,6 @@
 import * as Koa from 'koa'
 import { ApolloServer } from 'apollo-server-koa'
+import { createContext } from './contextFactory'
 import { gatewaySchema } from './schema'
 
 const PORT = 4003
@@ -7,9 +8,8 @@ const PORT = 4003
 const addGraphQLServer = (app: Koa): void => {
     const server = new ApolloServer({
         schema: gatewaySchema,
-        context: ({ ctx }) => {
-            const userId: string = ctx.request.header.userId
-            return { userId }
+        context: () => {
+            return createContext()
         }
     })
 
