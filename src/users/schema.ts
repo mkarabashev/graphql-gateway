@@ -7,7 +7,7 @@ export const userTypeDefs = gql`
 type User {
     id: Int!
     name: String!
-    bookIds: [Int!]!
+    bookId: Int
 }
 
 type Query {

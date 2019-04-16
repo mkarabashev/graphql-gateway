@@ -5,6 +5,6 @@ describe('repository', () => {
         const user = getUser(1)
         expect(user.id).toBe(1)
         expect(typeof user.name).toBe('string')
-        expect(Array.isArray(user.bookIds)).toBe(true)
+        expect(user.bookId).toBe(true)
     })
 })

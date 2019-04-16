@@ -21,7 +21,7 @@ export type QueryGetUserArgs = {
 export type User = {
   id: Scalars['Int'],
   name: Scalars['String'],
-  bookIds: Array<Scalars['Int']>,
+  bookId?: Maybe<Scalars['Int']>,
 };
 
 import { GraphQLResolveInfo } from 'graphql';
@@ -102,7 +102,7 @@ export type QueryResolvers<Context = any, ParentType = ResolversTypes['Query']> 
 export type UserResolvers<Context = any, ParentType = ResolversTypes['User']> = {
   id?: Resolver<ResolversTypes['Int'], ParentType, Context>,
   name?: Resolver<ResolversTypes['String'], ParentType, Context>,
-  bookIds?: Resolver<Array<ResolversTypes['Int']>, ParentType, Context>,
+  bookId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, Context>,
 };
 
 export type Resolvers<Context = any> = {
