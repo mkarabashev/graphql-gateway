@@ -1,4 +1,4 @@
-import { launchServer } from "./bookApp";
+import { launchServer } from './bookApp'
 
 launchServer()
     .catch(err => {
